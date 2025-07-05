@@ -35,7 +35,7 @@ export default component$(() => {
         </Jumbotron.SubText>
         <div class="flex justify-center gap-2">
           <Button>Get started</Button>
-          <Button onClick$={() => nav("/about")} color="alternative">
+          <Button href="/about" color="alternative">
             Learn more
           </Button>
         </div>

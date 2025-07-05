@@ -7,7 +7,7 @@ export default component$(() => {
   return (
     <>
       <div class="flex flex-wrap justify-center gap-4">
-        <Card href="#" class="sm:w-full md:w-2/4 xl:w-1/4">
+        <Card class="sm:w-full md:w-2/4 xl:w-1/4">
           <Heading>Instant Insights, Zero Guesswork</Heading>
           <p>
             Get real-time analytics and critical alerts from your app logs so
@@ -16,7 +16,7 @@ export default component$(() => {
           <Button suffix={IconArrowRightOutline}>Read More</Button>
         </Card>
 
-        <Card href="#" class="sm:w-full md:w-2/4 xl:w-1/4">
+        <Card class="sm:w-full md:w-2/4 xl:w-1/4">
           <Heading>Proactive Issue Detection</Heading>
           <p>
             Let AI spot bugs, anomalies, and potential bottlenecks before they
@@ -25,7 +25,7 @@ export default component$(() => {
           <Button suffix={IconArrowRightOutline}>Read more</Button>
         </Card>
 
-        <Card href="#" class="sm:w-full md:w-2/4 xl:w-1/4">
+        <Card class="sm:w-full md:w-2/4 xl:w-1/4">
           <Heading>Tailored Metrics & Visualizations</Heading>
           <p>
             Customize dashboards and reports to match your team’s unique needs
