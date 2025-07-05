@@ -1,6 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import { RequestHandler, useNavigate } from "@builder.io/qwik-city";
-import { Button, Jumbotron } from "flowbite-qwik";
+import { RequestHandler } from "@builder.io/qwik-city";
 import AppFooter from "~/components/AppFooter";
 import AppNav from "~/components/AppNav";
 
@@ -16,7 +15,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  const nav = useNavigate();
   return (
     <main
       style={{
@@ -25,21 +23,6 @@ export default component$(() => {
       }}
     >
       <AppNav />
-      <Jumbotron class="rounded-lg sm:mb-10 md:my-10">
-        <Jumbotron.Heading tag="h2">
-          Unlock Intelligent Insights from Your App Logs
-        </Jumbotron.Heading>
-        <Jumbotron.SubText>
-          AI-powered analytics and critical information to drive better product
-          decisions.
-        </Jumbotron.SubText>
-        <div class="flex justify-center gap-2">
-          <Button>Get started</Button>
-          <Button href="/about" color="alternative">
-            Learn more
-          </Button>
-        </div>
-      </Jumbotron>
       <section style={{ paddingBottom: "100px" }}>
         <Slot />
       </section>
