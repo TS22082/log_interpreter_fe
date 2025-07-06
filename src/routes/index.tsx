@@ -57,8 +57,8 @@ export default component$(() => {
           Access the analytics and intelligence you need to make informed
           decisions every step of the way.
         </Jumbotron.SubText>
-        <div class="flex justify-center">
-          <Button>Create An Account Now</Button>
+        <div class="flex justify-center gap-2">
+          <Button href="/login">Create An Account</Button>
         </div>
       </Jumbotron>
     </>
