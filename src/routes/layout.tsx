@@ -34,6 +34,7 @@ export default component$(() => {
     const userFromSession = sessionTracking.value?.user as undefined | UserType;
 
     if (emailFromSession && userFromSession) {
+      console.log("Logging in", emailFromSession);
       return setUserContext(user, userFromSession);
     }
 
