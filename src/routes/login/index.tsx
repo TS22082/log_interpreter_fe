@@ -9,7 +9,6 @@ export default component$(() => {
   const loginWith = $((provider: string) => {
     return signIn.submit({
       providerId: provider,
-      // redirectTo: "http://localhost:5173/auth/callback/github",
       redirectTo: "http://localhost:5173/",
     });
   });
