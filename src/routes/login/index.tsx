@@ -9,7 +9,7 @@ export default component$(() => {
   const loginWith = $((provider: string) => {
     return signIn.submit({
       providerId: provider,
-      redirectTo: "http://localhost:5173/",
+      redirectTo: "http://localhost:5173/dashboard",
     });
   });
 

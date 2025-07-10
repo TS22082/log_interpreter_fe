@@ -26,19 +26,21 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
   const user = useSignal<null | UserType>(null);
+  const sectionStyling = useSignal();
   const session = useSession();
 
   useTask$(({ track }) => {
     const sessionTracking = track(() => session);
-
     const emailFromSession = sessionTracking.value?.user?.email;
     const userFromSession = sessionTracking.value?.user as undefined | UserType;
 
     if (emailFromSession && userFromSession) {
+      sectionStyling.value = "xs:pl-[0px] pb-[100px] sm:pl-[263px]";
       return setUserContext(user, userFromSession);
     }
 
     user.value = null;
+    sectionStyling.value = "pb-[100px]";
   });
 
   useContextProvider(UserContext, user);
@@ -51,7 +53,7 @@ export default component$(() => {
       }}
     >
       <AppNav />
-      <section style={{ paddingBottom: "100px" }}>
+      <section class={sectionStyling.value as string}>
         <Slot />
       </section>
       <AppFooter />

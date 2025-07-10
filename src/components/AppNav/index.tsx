@@ -1,10 +1,37 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useTask$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
-import { DarkModeToggle, Navbar } from "flowbite-qwik";
-import { navItems } from "~/utils/contants";
+import { Button, DarkModeToggle, Hr, Navbar, Sidebar } from "flowbite-qwik";
+import { useSession, useSignOut } from "~/routes/plugin@auth";
+import { navItems, dashBoardItems } from "~/utils/contants";
 
 export default component$(() => {
   const location = useLocation();
+  const session = useSession();
+  const signOut = useSignOut();
+
+  if (session.value !== null)
+    return (
+      <Sidebar highlight>
+        <Sidebar.ItemGroup>
+          {dashBoardItems.map((item) => (
+            <Sidebar.Item key={item.route} icon={item.icon}>
+              {item.label}
+            </Sidebar.Item>
+          ))}
+          <Hr />
+          <Button
+            full
+            onClick$={() => {
+              signOut.submit({
+                redirectTo: "/login",
+              });
+            }}
+          >
+            Log Out
+          </Button>
+        </Sidebar.ItemGroup>
+      </Sidebar>
+    );
 
   return (
     <Navbar>

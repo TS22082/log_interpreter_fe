@@ -1,3 +1,5 @@
+import { IconHomeOutline, IconUserSettingsOutline } from "flowbite-qwik-icons";
+
 export const navItems = [
   { route: "/", label: "Home" },
   { route: "/documents/", label: "Docs" },
@@ -14,4 +16,9 @@ export const navItems = [
     route: "/login/",
     label: "Login",
   },
+];
+
+export const dashBoardItems = [
+  { route: "/dashboard/", label: "Home", icon: IconHomeOutline },
+  { route: "/settings/", label: "Settings", icon: IconUserSettingsOutline },
 ];

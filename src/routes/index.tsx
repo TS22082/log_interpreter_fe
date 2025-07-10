@@ -1,7 +1,16 @@
 import { component$ } from "@builder.io/qwik";
-import { type DocumentHead } from "@builder.io/qwik-city";
+import { RequestHandler, type DocumentHead } from "@builder.io/qwik-city";
 import { Button, Card, Heading, Jumbotron } from "flowbite-qwik";
 import { IconArrowRightOutline } from "flowbite-qwik-icons";
+import { Session } from "inspector";
+
+export const onRequest: RequestHandler = async ({ redirect, sharedMap }) => {
+  const session: Session | null = sharedMap.get("session");
+
+  if (session) {
+    throw redirect(308, "/dashboard");
+  }
+};
 
 export default component$(() => {
   return (
