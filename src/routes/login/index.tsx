@@ -19,9 +19,9 @@ export default component$(() => {
         Access Your Services Information Dashboard
       </Jumbotron.Heading>
       <Jumbotron.SubText>
-        Choose a provider to either login or register
+        Choose a provider to sign in or register
       </Jumbotron.SubText>
-      <section class="mt-10 flex justify-center gap-10">
+      <section class="mt-10 flex justify-center gap-2">
         <Button onClick$={() => loginWith("github")} prefix={IconGithubSolid}>
           Github
         </Button>
