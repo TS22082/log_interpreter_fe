@@ -1,4 +1,4 @@
-import { component$, useTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { Button, DarkModeToggle, Hr, Navbar, Sidebar } from "flowbite-qwik";
 import { useSession, useSignOut } from "~/routes/plugin@auth";
@@ -14,7 +14,7 @@ export default component$(() => {
       <Sidebar highlight>
         <Sidebar.ItemGroup>
           {dashBoardItems.map((item) => (
-            <Sidebar.Item key={item.route} icon={item.icon}>
+            <Sidebar.Item key={item.route} icon={item.icon} href={item.route}>
               {item.label}
             </Sidebar.Item>
           ))}
