@@ -30,11 +30,11 @@ export default component$(() => {
 
   useTask$(({ track }) => {
     const sessionTracking = track(() => session);
+
     const emailFromSession = sessionTracking.value?.user?.email;
     const userFromSession = sessionTracking.value?.user as undefined | UserType;
 
     if (emailFromSession && userFromSession) {
-      console.log("Logging in", emailFromSession);
       return setUserContext(user, userFromSession);
     }
 
