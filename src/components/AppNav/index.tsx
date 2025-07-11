@@ -1,6 +1,19 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
-import { Button, DarkModeToggle, Hr, Navbar, Sidebar } from "flowbite-qwik";
+import {
+  Button,
+  DarkModeToggle,
+  Hr,
+  Navbar,
+  Sidebar,
+  Toggle,
+  useDarkMode,
+} from "flowbite-qwik";
+import {
+  IconBarsOutline,
+  IconMoonOutline,
+  IconSunOutline,
+} from "flowbite-qwik-icons";
 import { useSession, useSignOut } from "~/routes/plugin@auth";
 import { navItems, dashBoardItems } from "~/utils/contants";
 
@@ -8,29 +21,55 @@ export default component$(() => {
   const location = useLocation();
   const session = useSession();
   const signOut = useSignOut();
+  const collapsed = useSignal(false);
+  const { isDark, setDarkModeValue } = useDarkMode();
 
   if (session.value !== null)
     return (
-      <Sidebar highlight>
-        <Sidebar.ItemGroup>
-          {dashBoardItems.map((item) => (
-            <Sidebar.Item key={item.route} icon={item.icon} href={item.route}>
-              {item.label}
-            </Sidebar.Item>
-          ))}
-          <Hr />
+      <>
+        <Navbar class="sm:hidden">
           <Button
-            full
+            color="dark"
+            outline
+            square
             onClick$={() => {
-              signOut.submit({
-                redirectTo: "/login",
-              });
+              collapsed.value = !collapsed.value;
             }}
           >
-            Log Out
+            <IconBarsOutline />
           </Button>
-        </Sidebar.ItemGroup>
-      </Sidebar>
+        </Navbar>
+        <Sidebar highlight collapsed={collapsed}>
+          <Sidebar.ItemGroup>
+            {dashBoardItems.map((item) => (
+              <Sidebar.Item key={item.route} icon={item.icon} href={item.route}>
+                {item.label}
+              </Sidebar.Item>
+            ))}
+
+            <div class="flex h-[40px] items-center text-lg">
+              <Toggle
+                bind:checked={isDark}
+                onChange$={() => {
+                  setDarkModeValue(isDark.value ? "dark" : "light");
+                }}
+              />
+              {isDark.value ? <IconSunOutline /> : <IconMoonOutline />}
+            </div>
+            <Hr />
+            <Button
+              full
+              onClick$={() =>
+                signOut.submit({
+                  redirectTo: "/login",
+                })
+              }
+            >
+              Log Out
+            </Button>
+          </Sidebar.ItemGroup>
+        </Sidebar>
+      </>
     );
 
   return (
