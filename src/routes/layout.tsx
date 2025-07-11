@@ -39,7 +39,6 @@ export default component$(() => {
       }}
     >
       <AppNav />
-      {/* <section class={sectionStyling.value as string}> */}
       <section class={sectionStyling.value as string}>
         <Slot />
       </section>
