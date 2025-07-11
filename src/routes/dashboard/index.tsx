@@ -4,23 +4,23 @@ import { Card, Heading, Link, Table } from "flowbite-qwik";
 
 export default component$(() => {
   return (
-    <>
-      <div class="flex flex-wrap justify-between gap-4 pt-10">
-        <Card href="#" class="xs:w-full md:w-[350px]">
+    <div class="mt-2 flex flex-col gap-2">
+      <div class="flex flex-wrap justify-between gap-2">
+        <Card href="#" class="xs:w-full lg:w-1/4">
           <Heading tag="h4">Info</Heading>
           <p class="font-normal text-gray-700 dark:text-gray-400">
             Here are the biggest enterprise technology acquisitions of 2021 so
             far, in reverse chronological order.
           </p>
         </Card>
-        <Card href="#" class="xs:w-full md:w-[350px]">
+        <Card href="#" class="xs:w-full lg:w-1/4">
           <Heading tag="h4">Actions</Heading>
           <p class="font-normal text-gray-700 dark:text-gray-400">
             Here are the biggest enterprise technology acquisitions of 2021 so
             far, in reverse chronological order.
           </p>
         </Card>
-        <Card href="#" class="xs:w-full md:w-[350px]">
+        <Card href="#" class="xs:w-full lg:w-1/4">
           <Heading tag="h4">Errors</Heading>
           <p class="font-normal text-gray-700 dark:text-gray-400">
             Here are the biggest enterprise technology acquisitions of 2021 so
@@ -28,7 +28,7 @@ export default component$(() => {
           </p>
         </Card>
       </div>
-      <div class="overflow-x-auto pt-10">
+      <div class="overflow-x-auto">
         <Table>
           <Table.Head>
             <Table.HeadCell>Type</Table.HeadCell>
@@ -76,7 +76,7 @@ export default component$(() => {
           </Table.Body>
         </Table>
       </div>
-    </>
+    </div>
   );
 });
 
